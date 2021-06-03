@@ -1,0 +1,42 @@
+<div class="container">
+
+<% if @range == "User" %>
+  <h1>Users search for "<%= @word %>"</h1>
+
+         <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>name</th>
+                <th>Opinion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><% @users.each do |user| %>
+                <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
+                <td><%= link_to user.name, user %></td>
+                <td></td>
+              </tr><% end %>
+            </tbody>
+          </table>
+<% else %>
+<h1>Books search for "<%= @word %>"</h1>
+        <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>title</th>
+                <th>Opinion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><% @books.each do |book| %>
+                <td><%= attachment_image_tag(book.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
+                <td><%= link_to book.title, book %></td>
+                <td></td>
+              </tr><% end %>
+            </tbody>
+          </table>
+<% end %>
+
+</div>
