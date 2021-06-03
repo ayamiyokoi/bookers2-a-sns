@@ -9,8 +9,10 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+
     @book = Book.new
+    @ranks = Book.last_week
+    @books = Book.all()
   end
 
   def create
@@ -50,6 +52,7 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to books_path
   end
+
 
 
   private
