@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  impressionist :actions=> [:show]
 
   def show
     @book_new = Book.new
@@ -6,6 +7,7 @@ class BooksController < ApplicationController
     @user = current_user
     @user_new = @book.user
     @book_comment = BookComment.new
+    impressionist(@book)
   end
 
   def index
