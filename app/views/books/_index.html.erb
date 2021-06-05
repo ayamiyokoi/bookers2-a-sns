@@ -8,8 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <% if ranks != 0 %>
-      <% ranks.each do |book| %>
+      <% books.each do |book| %>
         <tr>
           <td><%= link_to user_path(book.user) do %>
             <%= attachment_image_tag(book.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
@@ -24,22 +23,5 @@
           <td><p>コメント件数：<%= book.book_comments.count %></p></td>
         </tr>
       <% end %>
-    <% else %>
-       <% books.each do |book| %>
-        <tr>
-          <td><%= link_to user_path(book.user) do %>
-            <%= attachment_image_tag(book.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
-            <% end %>
-          </td>
-          <td><%= link_to book.title, book_path(book), class: "book_#{book.id}" %></td>
-          <td><%= book.body %></td>
-
-
-          <td id="likes_buttons_<%= book.id %>"><%= render 'favorites/favorite', book: book %>
-          </td>
-          <td><p>コメント件数：<%= book.book_comments.count %></p></td>
-        </tr>
-      <% end %>
-    <% end %>
   </tbody>
 </table>

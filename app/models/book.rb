@@ -2,6 +2,7 @@ class Book < ApplicationRecord
 	belongs_to :user
 
   has_many :favorites, dependent: :destroy
+  has_many :favorited_users, through: :favorites, source: :user
   has_many :book_comments, dependent: :destroy
 
   def favorited_by?(user)
@@ -22,11 +23,6 @@ class Book < ApplicationRecord
                 else
                         Book.all
                 end
-  end
-
-  def self.last_week
-    now = Time.current 
-    Book.joins(:favorites).where(favorites: { created_at: now.beginning_of_week..now}).group(:id).order("count(*) desc")
   end
 
 end
