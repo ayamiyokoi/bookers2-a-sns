@@ -6573,3 +6573,2027 @@ Processing by BooksController#index as HTML
 Completed 200 OK in 408ms (Views: 270.6ms | ActiveRecord: 9.1ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateRooms (20210605085027)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20210605085027_create_rooms.rb:3
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210605085027_create_rooms.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605085027"]]
+  ↳ bin/rails:9
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateEntries (20210605085035)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "entries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "room_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_99dc12d4fd"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_f9d3a4412c"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  ↳ db/migrate/20210605085035_create_entries.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_entries_on_user_id" ON "entries" ("user_id")[0m
+  ↳ db/migrate/20210605085035_create_entries.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_entries_on_room_id" ON "entries" ("room_id")[0m
+  ↳ db/migrate/20210605085035_create_entries.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605085035"]]
+  ↳ bin/rails:9
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateMessages (20210605085041)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "room_id" integer, "content" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_273a25a7a6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_a8db0fb63a"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  ↳ db/migrate/20210605085041_create_messages.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_user_id" ON "messages" ("user_id")[0m
+  ↳ db/migrate/20210605085041_create_messages.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_room_id" ON "messages" ("room_id")[0m
+  ↳ db/migrate/20210605085041_create_messages.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605085041"]]
+  ↳ bin/rails:9
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 113.158.219.117 at 2021-06-05 09:24:42 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/layouts/_header.html.erb:10
+  Rendered layouts/_header.html.erb (47.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 5381ms (Views: 5354.8ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/books" for 113.158.219.117 at 2021-06-05 09:24:53 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mFavorite Load (0.8ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."book_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["book_id", 1], ["book_id", 2], ["book_id", 3], ["book_id", 4], ["book_id", 5], ["book_id", 6], ["book_id", 7], ["book_id", 8], ["book_id", 9], ["book_id", 10], ["book_id", 11], ["book_id", 12]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 3], ["id", 2]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 3], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 2], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 3], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 2], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 6], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 5], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 6], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 4], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 5], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 4], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 6], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 3], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 6], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 2], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 4], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 2], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 4], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 5], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 9], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 8], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 8], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 7], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 12], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 11], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 11], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 10], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 10], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 7], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 10], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 8], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 10], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 9], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 7], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 3], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 7], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 6], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 7], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 2], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 8], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 2], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 8], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 4], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 8], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 9], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 10], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 10], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 5], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  Rendering books/index.html.erb within layouts/application
+  Rendered users/_info.html.erb (0.9ms)
+  Rendered books/index.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 235ms (ActiveRecord: 5.5ms)
+
+
+  
+SyntaxError (/home/ec2-user/environment/bookers2-a-sns/app/views/users/_info.html.erb:51: syntax error, unexpected ensure, expecting end
+          ensure
+          ^~~~~~
+/home/ec2-user/environment/bookers2-a-sns/app/views/users/_info.html.erb:53: syntax error, unexpected end-of-input, expecting end):
+  
+app/views/users/_info.html.erb:51: syntax error, unexpected ensure, expecting end
+app/views/users/_info.html.erb:53: syntax error, unexpected end-of-input, expecting end
+app/views/books/index.html.erb:5:in `_app_views_books_index_html_erb__2148501725625077492_69895200595880'
+Started GET "/books" for 113.158.219.117 at 2021-06-05 09:26:46 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mFavorite Load (1.3ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."book_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["book_id", 1], ["book_id", 2], ["book_id", 3], ["book_id", 4], ["book_id", 5], ["book_id", 6], ["book_id", 7], ["book_id", 8], ["book_id", 9], ["book_id", 10], ["book_id", 11], ["book_id", 12]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 3], ["id", 2]]
+  ↳ app/controllers/books_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 3], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 2], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 3], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 2], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 6], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 5], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 6], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 4], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 5], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 4], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 6], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 3], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 6], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 2], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 4], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 2], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 4], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 5], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 9], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 8], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 8], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 7], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 12], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 11], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 11], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 10], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 10], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 7], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 10], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 8], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 10], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 9], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 7], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 3], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 7], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 6], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 7], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 2], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 8], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 2], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 8], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 4], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 8], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 9], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 10], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 1], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 10], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "favorites" ON "users"."id" = "favorites"."user_id" WHERE "favorites"."book_id" = ? AND "users"."created_at" >= ? AND "users"."created_at" < ?[0m  [["book_id", 5], ["created_at", "2021-05-30 00:00:00"], ["created_at", "2021-06-05 23:59:59.999999"]]
+  ↳ app/controllers/books_controller.rb:20
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (19.3ms)
+  Rendered layouts/_errors.html.erb (0.3ms)
+  Rendered books/_form.html.erb (13.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/_index.html.erb:13
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/favorites/_favorite.html.erb:5
+  Rendered favorites/_favorite.html.erb (5.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 3], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/_index.html.erb:13
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/views/favorites/_favorite.html.erb:5
+  Rendered favorites/_favorite.html.erb (19.5ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 6], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/_index.html.erb:13
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/views/favorites/_favorite.html.erb:5
+  Rendered favorites/_favorite.html.erb (18.7ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 7], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/_index.html.erb:13
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 2], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/favorites/_favorite.html.erb:5
+  Rendered favorites/_favorite.html.erb (7.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 2], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/_index.html.erb:13
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.9ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 4], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/_index.html.erb:13
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 8], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/views/favorites/_favorite.html.erb:5
+  Rendered favorites/_favorite.html.erb (6.7ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 8], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/_index.html.erb:13
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 9], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/views/favorites/_favorite.html.erb:5
+  Rendered favorites/_favorite.html.erb (18.3ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 9], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/_index.html.erb:13
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 1], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 1], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/_index.html.erb:13
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.2ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 5], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/_index.html.erb:13
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 10], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 10], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/_index.html.erb:13
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 11], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 11], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/_index.html.erb:13
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 12], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 12], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  Rendered books/_index.html.erb (225.2ms)
+  Rendered books/index.html.erb within layouts/application (262.7ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 507ms (Views: 363.1ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/users" for 113.158.219.117 at 2021-06-05 09:27:00 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (11.9ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered books/_form.html.erb (4.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_index.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_index.html.erb:18
+  Rendered users/_index.html.erb (35.4ms)
+  Rendered users/index.html.erb within layouts/application (60.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 195ms (Views: 190.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users/2/relationships" for 113.158.219.117 at 2021-06-05 09:27:04 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RelationshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"6GflLGLG3Xrei-93bxuam12geWCW6SXQlxWYHUKAhw8_ZJAkCgfc8hnfcKhT3bDDHmOSF0usiOBt6bW1eyOKFA", "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:25
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+  [1m[36mRelationship Create (3.6ms)[0m  [1m[32mINSERT INTO "relationships" ("follower_id", "followed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 3], ["followed_id", 2], ["created_at", "2021-06-05 09:27:04.438452"], ["updated_at", "2021-06-05 09:27:04.438452"]]
+  ↳ app/models/user.rb:25
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:25
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/users
+Completed 302 Found in 30ms (ActiveRecord: 9.4ms)
+
+
+Started GET "/users" for 113.158.219.117 at 2021-06-05 09:27:04 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (9.0ms)
+  Rendered layouts/_errors.html.erb (0.3ms)
+  Rendered books/_form.html.erb (3.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_index.html.erb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_index.html.erb:18
+  Rendered users/_index.html.erb (21.9ms)
+  Rendered users/index.html.erb within layouts/application (40.8ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 151ms (Views: 149.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/2" for 113.158.219.117 at 2021-06-05 09:27:14 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_info.html.erb:20
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  Rendered users/_info.html.erb (23.7ms)
+  Rendered users/show.html.erb within layouts/application (25.4ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `followed_by?' for #<User:0x00007f237d3d1bf0>
+Did you mean?  follower_ids):
+    25:     <%= link_to "フォロー外す", user_relationships_path(user.id), class: "btn btn-info", method: :delete %>
+    26:   <% end %>
+    27:     <!--チャット部分-->
+    28:   <% if (current_user.followed_by? @user) && (@user.followed_by? current_user) %>
+    29:     <% if @isRoom == true %>
+    30:       <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">chatへ</a>
+    31:     <% else %>
+  
+app/views/users/_info.html.erb:28:in `_app_views_users__info_html_erb__3255784355967403587_69895201971000'
+app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___2611930914457418201_69895201825120'
+Started GET "/users/2" for 113.158.219.117 at 2021-06-05 09:29:07 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_info.html.erb:20
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 2], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  Rendered users/_info.html.erb (18.2ms)
+  Rendered layouts/_errors.html.erb (0.3ms)
+  Rendered books/_form.html.erb (3.8ms)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/books/_index.html.erb:11
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 4], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (5.9ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 4], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 5], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (5.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 5], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 6], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/views/favorites/_favorite.html.erb:5
+  Rendered favorites/_favorite.html.erb (4.4ms)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 6], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 9], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/views/favorites/_favorite.html.erb:5
+  Rendered favorites/_favorite.html.erb (4.5ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 9], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 10], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (3.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 10], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 11], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.2ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 11], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 12], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 12], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  Rendered books/_index.html.erb (73.1ms)
+  Rendered users/show.html.erb within layouts/application (97.9ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 215ms (Views: 202.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/users" for 113.158.219.117 at 2021-06-05 09:29:13 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (15.7ms)
+  Rendered layouts/_errors.html.erb (5.1ms)
+  Rendered books/_form.html.erb (10.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_index.html.erb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_index.html.erb:18
+  Rendered users/_index.html.erb (30.2ms)
+  Rendered users/index.html.erb within layouts/application (63.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 235ms (Views: 231.9ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/users/sign_out" for 113.158.219.117 at 2021-06-05 09:29:19 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OTLNBZBRBwzEJezzyteFh137kA0Ogm0aNPsKBCp5mhPuMbgN-JAGhANxcyz2Ea_fHjh7etPHwCrOByesE9qXCA"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 12ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 113.158.219.117 at 2021-06-05 09:29:20 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 107ms (Views: 105.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 113.158.219.117 at 2021-06-05 09:29:22 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 121ms (Views: 119.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 113.158.219.117 at 2021-06-05 09:29:30 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TrqMVabIhCdJEPcGZJtnoqy1o-2B45eAkWWEfXjAKONyDXO3zq_4ogB8WTqFanzrKqeW6oDscvnX6xt4kSYmDA", "user"=>{"name"=>"test4", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["name", "test4"], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 312ms (ActiveRecord: 0.2ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TrqMVabIhCdJEPcGZJtnoqy1o-2B45eAkWWEfXjAKONyDXO3zq_4ogB8WTqFanzrKqeW6oDscvnX6xt4kSYmDA", "user"=>{"name"=>"test4", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 417ms (Views: 114.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 113.158.219.117 at 2021-06-05 09:29:38 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9E5vEHFC93az_FvY3zbyDfbnTCnbGImyDfdE_MX2BBMD6wX-3EfEmbPoe2bsdD1L6XA0qpuufVfAmDiTK4z0xQ", "user"=>{"name"=>"test4", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["name", "test4"], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/users/1
+Completed 302 Found in 310ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1" for 113.158.219.117 at 2021-06-05 09:29:39 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (13.1ms)
+  Rendered layouts/_errors.html.erb (0.3ms)
+  Rendered books/_form.html.erb (3.8ms)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/books/_index.html.erb:11
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (5.5ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 1], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 2], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 3], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.4ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 3], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  Rendered books/_index.html.erb (35.6ms)
+  Rendered users/show.html.erb within layouts/application (55.2ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 169ms (Views: 163.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users" for 113.158.219.117 at 2021-06-05 09:29:45 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (9.6ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered books/_form.html.erb (3.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_index.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  Rendered users/_index.html.erb (25.1ms)
+  Rendered users/index.html.erb within layouts/application (47.0ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 215ms (Views: 212.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users/2/relationships" for 113.158.219.117 at 2021-06-05 09:29:51 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RelationshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"mpBsGv2JacVbVOwEAuQ1zXUPvZZ-Sq5ukJMJjyPbaTrRSARAPW-4rBiJlmIpCeeTzPBm0mG02xhx_Nr5cPj3vA", "user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:25
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+  [1m[36mRelationship Create (3.6ms)[0m  [1m[32mINSERT INTO "relationships" ("follower_id", "followed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 1], ["followed_id", 2], ["created_at", "2021-06-05 09:29:51.762860"], ["updated_at", "2021-06-05 09:29:51.762860"]]
+  ↳ app/models/user.rb:25
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:25
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/users
+Completed 302 Found in 40ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/users" for 113.158.219.117 at 2021-06-05 09:29:51 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (8.3ms)
+  Rendered layouts/_errors.html.erb (0.3ms)
+  Rendered books/_form.html.erb (3.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_index.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  Rendered users/_index.html.erb (23.5ms)
+  Rendered users/index.html.erb within layouts/application (41.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 145ms (Views: 142.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/2" for 113.158.219.117 at 2021-06-05 09:29:53 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_info.html.erb:20
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 2], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  Rendered users/_info.html.erb (18.1ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered books/_form.html.erb (3.5ms)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/books/_index.html.erb:11
+  [1m[36mFavorite Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 4], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (5.2ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 4], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 5], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.6ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 5], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 6], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.9ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 6]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 6], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 9], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.5ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 9]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 9], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 10], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (15.9ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 10]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 10], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 11], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 11]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 11], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 12], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 12]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 12], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  Rendered books/_index.html.erb (89.2ms)
+  Rendered users/show.html.erb within layouts/application (115.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 226ms (Views: 214.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users" for 113.158.219.117 at 2021-06-05 09:30:25 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (10.2ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered books/_form.html.erb (4.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_index.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  Rendered users/_index.html.erb (33.1ms)
+  Rendered users/index.html.erb within layouts/application (57.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 187ms (Views: 184.3ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users/3/relationships" for 113.158.219.117 at 2021-06-05 09:30:27 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RelationshipsController#create as HTML
+  Parameters: {"authenticity_token"=>"cuC5ywtsgAHWE7luBBJszhcf9KUhwlXUHV7ktTY-FrI5ONGRy4pRaJXOwwgv_76QruAv4T48IKL8MTfDZR2INA", "user_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:25
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25
+  [1m[36mRelationship Create (1.0ms)[0m  [1m[32mINSERT INTO "relationships" ("follower_id", "followed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 1], ["followed_id", 3], ["created_at", "2021-06-05 09:30:27.286339"], ["updated_at", "2021-06-05 09:30:27.286339"]]
+  ↳ app/models/user.rb:25
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:25
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/users
+Completed 302 Found in 20ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/users" for 113.158.219.117 at 2021-06-05 09:30:27 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (8.5ms)
+  Rendered layouts/_errors.html.erb (0.3ms)
+  Rendered books/_form.html.erb (3.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_index.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  Rendered users/_index.html.erb (22.4ms)
+  Rendered users/index.html.erb within layouts/application (40.1ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 147ms (Views: 144.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/1/followers" for 113.158.219.117 at 2021-06-05 09:30:33 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RelationshipsController#followers as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/relationships_controller.rb:18
+  Rendering relationships/followers.html.erb within layouts/application
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ? LIMIT ?[0m  [["followed_id", 1], ["LIMIT", 1]]
+  ↳ app/views/relationships/followers.html.erb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/relationships/followers.html.erb:16
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/relationships/followers.html.erb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/relationships/followers.html.erb:21
+  Rendered relationships/followers.html.erb within layouts/application (17.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 120ms (Views: 113.4ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/sign_out" for 113.158.219.117 at 2021-06-05 09:30:43 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0jX3UPSAwfH-4SFD8743916MI-tovC4Qn4rt_LMRFViZ7Z8KNGYQmL08WyXYU-Wp53P4r3dCW2Z-5T6K4DKL3g"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 113.158.219.117 at 2021-06-05 09:30:44 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 166ms (Views: 165.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 113.158.219.117 at 2021-06-05 09:30:45 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 104ms (Views: 103.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 113.158.219.117 at 2021-06-05 09:30:52 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a7vkQ-f7NvGXmcqJgp7zDcJ2n2E5yOVqiMVRzS1ua1SwdDEl0b_tP374OmyreUCBw654C7C3swNyEWLpAiLjcQ", "user"=>{"name"=>"test2", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["name", "test2"], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/users/3
+Completed 302 Found in 311ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/3" for 113.158.219.117 at 2021-06-05 09:30:53 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (9.0ms)
+  Rendered layouts/_errors.html.erb (0.3ms)
+  Rendered books/_form.html.erb (3.3ms)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/books/_index.html.erb:11
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 7], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/views/favorites/_favorite.html.erb:5
+  Rendered favorites/_favorite.html.erb (5.2ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 7], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 8], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/views/favorites/_favorite.html.erb:5
+  Rendered favorites/_favorite.html.erb (4.5ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 8], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  Rendered books/_index.html.erb (25.7ms)
+  Rendered users/show.html.erb within layouts/application (42.6ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 145ms (Views: 138.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users" for 113.158.219.117 at 2021-06-05 09:30:56 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (13.9ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered books/_form.html.erb (3.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_index.html.erb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_index.html.erb:18
+  Rendered users/_index.html.erb (22.8ms)
+  Rendered users/index.html.erb within layouts/application (47.1ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 151ms (Views: 148.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1" for 113.158.219.117 at 2021-06-05 09:31:05 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:12
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_info.html.erb:20
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  Rendered users/_info.html.erb (32.6ms)
+  Rendered layouts/_errors.html.erb (0.3ms)
+  Rendered books/_form.html.erb (4.7ms)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/books/_index.html.erb:11
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 1], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.8ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 1], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 2], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/favorites/_favorite.html.erb:5
+  Rendered favorites/_favorite.html.erb (5.0ms)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 2], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 3], ["user_id", 3], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/favorites/_favorite.html.erb:5
+  Rendered favorites/_favorite.html.erb (4.8ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 3], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  Rendered books/_index.html.erb (36.1ms)
+  Rendered users/show.html.erb within layouts/application (77.2ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 204ms (Views: 192.8ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/rooms" for 113.158.219.117 at 2021-06-05 09:31:08 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k5UmQu3M8ZD7pl80rBDoAcBB5E9mjq1XKPONo8IMPodUNiKBicJ3h6WifpBLr54PPKfUHLZ3dw53yCUH7o9CtQ", "entry"=>{"user_id"=>"1"}, "commit"=>"chatを始める"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:5
+  [1m[36mRoom Create (2.0ms)[0m  [1m[32mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-06-05 09:31:08.077392"], ["updated_at", "2021-06-05 09:31:08.077392"]]
+  ↳ app/controllers/rooms_controller.rb:5
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6
+  [1m[36mEntry Create (1.5ms)[0m  [1m[32mINSERT INTO "entries" ("user_id", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["room_id", 1], ["created_at", "2021-06-05 09:31:08.093934"], ["updated_at", "2021-06-05 09:31:08.093934"]]
+  ↳ app/controllers/rooms_controller.rb:6
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:7
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:7
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:7
+  [1m[36mEntry Create (1.4ms)[0m  [1m[32mINSERT INTO "entries" ("user_id", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["created_at", "2021-06-05 09:31:08.107923"], ["updated_at", "2021-06-05 09:31:08.107923"]]
+  ↳ app/controllers/rooms_controller.rb:7
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:7
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/rooms/1
+Completed 302 Found in 45ms (ActiveRecord: 21.2ms)
+
+
+Started GET "/rooms/1" for 113.158.219.117 at 2021-06-05 09:31:08 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:12
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 3], ["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:13
+  Rendering rooms/show.html.erb within layouts/application
+  Rendered rooms/show.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.8ms)
+
+
+  
+SyntaxError (/home/ec2-user/environment/bookers2-a-sns/app/views/rooms/show.html.erb:27: syntax error, unexpected end-of-input, expecting end):
+  
+app/views/rooms/show.html.erb:27: syntax error, unexpected end-of-input, expecting end
+Started GET "/rooms/1" for 113.158.219.117 at 2021-06-05 09:32:04 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:12
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 3], ["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:13
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:9
+  Rendered rooms/show.html.erb within layouts/application (11.7ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 168ms (Views: 160.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/messages" for 113.158.219.117 at 2021-06-05 09:32:09 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oDauDm_5VDw2F3qznYOqvVHKsc8NE_f0vURNVLyMKvhYmf-9LDIUcmPU5NghNBBK5Wmv4Q7YMuCc90-TrJu0Cw", "message"=>{"content"=>"aaa", "room_id"=>"1"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 3], ["room_id", 1]]
+  ↳ app/controllers/messages_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mMessage Create (2.6ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["room_id", 1], ["content", "aaa"], ["created_at", "2021-06-05 09:32:09.504686"], ["updated_at", "2021-06-05 09:32:09.504686"]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/messages_controller.rb:6
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/rooms/1
+Completed 302 Found in 27ms (ActiveRecord: 9.6ms)
+
+
+Started GET "/rooms/1" for 113.158.219.117 at 2021-06-05 09:32:09 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:12
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 3], ["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:13
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:9
+  Rendered rooms/show.html.erb within layouts/application (30.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 131ms (Views: 124.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/messages" for 113.158.219.117 at 2021-06-05 09:32:18 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FaBGndKOn7NQuiOmvsVM_zyRAtoRXPOlgzJZpZYB2DDtDxcukUXf_QV5vc0CcvYIiDIc9BKXNrGigVtihhZGww", "message"=>{"content"=>"いい感じにできた", "room_id"=>"1"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 3], ["room_id", 1]]
+  ↳ app/controllers/messages_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mMessage Create (1.5ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["room_id", 1], ["content", "いい感じにできた"], ["created_at", "2021-06-05 09:32:18.268018"], ["updated_at", "2021-06-05 09:32:18.268018"]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/messages_controller.rb:6
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/rooms/1
+Completed 302 Found in 20ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/rooms/1" for 113.158.219.117 at 2021-06-05 09:32:18 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:12
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 3], ["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:13
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:9
+  Rendered rooms/show.html.erb within layouts/application (11.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 114ms (Views: 107.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/messages" for 113.158.219.117 at 2021-06-05 09:32:27 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3Ioy1cu_FEmEkYBuBaps8WUDLm_QFu7BQtPolVCia9YkJWNmiHRUB9FSHgW5HdYG0aAwQdPdK9VjYOpSQLX1JQ", "message"=>{"content"=>"ちゃっとできてるぅ！", "room_id"=>"1"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 3], ["room_id", 1]]
+  ↳ app/controllers/messages_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mMessage Create (1.6ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["room_id", 1], ["content", "ちゃっとできてるぅ！"], ["created_at", "2021-06-05 09:32:27.179338"], ["updated_at", "2021-06-05 09:32:27.179338"]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/messages_controller.rb:6
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/rooms/1
+Completed 302 Found in 20ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/rooms/1" for 113.158.219.117 at 2021-06-05 09:32:27 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:12
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 3], ["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:13
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:9
+  Rendered rooms/show.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 120ms (Views: 113.2ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for 113.158.219.117 at 2021-06-05 09:32:30 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xeYrTvJUvUIh7c45kvnllJ4wnU9SCZso5PMZcN5twO89SXr9sZ_9DHQuUFIuTl9jKpODYVHCXjzFQBu3znpeHA"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 113.158.219.117 at 2021-06-05 09:32:30 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 115ms (Views: 113.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 113.158.219.117 at 2021-06-05 09:32:31 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 101ms (Views: 99.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 113.158.219.117 at 2021-06-05 09:32:40 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1jU-O9QNDmrsb-QD9Rz1t00ghqfPFBaB_aEh9KRHsQCDu86bWE9VObz16hH7soDR96Ec1lqqRJQCle-EwPJQ7Q", "user"=>{"name"=>"test4", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["name", "test4"], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/users/1
+Completed 302 Found in 310ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1" for 113.158.219.117 at 2021-06-05 09:32:40 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (7.9ms)
+  Rendered layouts/_errors.html.erb (0.3ms)
+  Rendered books/_form.html.erb (3.8ms)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/books/_index.html.erb:11
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.9ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 1], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.2ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 2], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 3], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 3], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  Rendered books/_index.html.erb (35.1ms)
+  Rendered users/show.html.erb within layouts/application (50.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 150ms (Views: 142.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users" for 113.158.219.117 at 2021-06-05 09:32:42 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (8.0ms)
+  Rendered layouts/_errors.html.erb (0.3ms)
+  Rendered books/_form.html.erb (3.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_index.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  Rendered users/_index.html.erb (23.9ms)
+  Rendered users/index.html.erb within layouts/application (41.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 156ms (Views: 153.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1" for 113.158.219.117 at 2021-06-05 09:32:48 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (8.2ms)
+  Rendered layouts/_errors.html.erb (0.3ms)
+  Rendered books/_form.html.erb (3.5ms)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/books/_index.html.erb:11
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (5.3ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 1], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (5.3ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 2], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 3], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (4.8ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 3], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  Rendered books/_index.html.erb (37.1ms)
+  Rendered users/show.html.erb within layouts/application (51.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 149ms (Views: 142.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users" for 113.158.219.117 at 2021-06-05 09:32:54 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/index.html.erb:5
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_info.html.erb:20
+  Rendered users/_info.html.erb (8.1ms)
+  Rendered layouts/_errors.html.erb (0.3ms)
+  Rendered books/_form.html.erb (3.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/_index.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_index.html.erb:17
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_index.html.erb:18
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  Rendered users/_index.html.erb (24.1ms)
+  Rendered users/index.html.erb within layouts/application (41.7ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 136ms (Views: 133.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/3" for 113.158.219.117 at 2021-06-05 09:32:56 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:13
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/views/users/_info.html.erb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 3]]
+  ↳ app/views/users/_info.html.erb:20
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  Rendered users/_info.html.erb (17.4ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered books/_form.html.erb (3.3ms)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/views/books/_index.html.erb:11
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 7], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (6.9ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 7]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 7], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  [1m[36mFavorite Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 8], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/book.rb:10
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/views/favorites/_favorite.html.erb:11
+  Rendered favorites/_favorite.html.erb (5.2ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 8]]
+  ↳ app/views/books/_index.html.erb:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(DISTINCT "impressions"."request_hash") FROM "impressions" WHERE "impressions"."impressionable_id" = ? AND "impressions"."impressionable_type" = ?[0m  [["impressionable_id", 8], ["impressionable_type", "Book"]]
+  ↳ app/views/books/_index.html.erb:24
+  Rendered books/_index.html.erb (27.3ms)
+  Rendered users/show.html.erb within layouts/application (51.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 157ms (Views: 144.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/rooms/1" for 113.158.219.117 at 2021-06-05 09:32:57 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:12
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 1], ["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:13
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:9
+  Rendered rooms/show.html.erb within layouts/application (30.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 151ms (Views: 143.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/messages" for 113.158.219.117 at 2021-06-05 09:33:14 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7sxqFbVkFskaQLLn2kwb5Dx_rrOU4J5MVQxzARUQQl7hcaUQMlpHO3-Lmor5EypuC2Qs2DdJ81ZQb0uA5aGHJg", "message"=>{"content"=>"ひゃっほーい！！", "room_id"=>"1"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 1], ["room_id", 1]]
+  ↳ app/controllers/messages_controller.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mMessage Create (1.8ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["content", "ひゃっほーい！！"], ["created_at", "2021-06-05 09:33:14.828297"], ["updated_at", "2021-06-05 09:33:14.828297"]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/messages_controller.rb:6
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/rooms/1
+Completed 302 Found in 21ms (ActiveRecord: 7.9ms)
+
+
+Started GET "/rooms/1" for 113.158.219.117 at 2021-06-05 09:33:15 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:12
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 1], ["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:13
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:9
+  Rendered rooms/show.html.erb within layouts/application (13.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 113ms (Views: 105.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/messages" for 113.158.219.117 at 2021-06-05 09:33:25 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MAu54fTTEsJuC9fit223TG6Qo-AxlK8EPDs4x1sE6mX39ZMWJAXyUqRJjKgNqqaQbkEKB3n-LpUiBlaPHpxkcg", "message"=>{"content"=>"めちゃ嬉しいわ。", "room_id"=>"1"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mEntry Load (0.9ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 1], ["room_id", 1]]
+  ↳ app/controllers/messages_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mMessage Create (1.7ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["content", "めちゃ嬉しいわ。"], ["created_at", "2021-06-05 09:33:25.521898"], ["updated_at", "2021-06-05 09:33:25.521898"]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/messages_controller.rb:6
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/rooms/1
+Completed 302 Found in 22ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/rooms/1" for 113.158.219.117 at 2021-06-05 09:33:25 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:12
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 1], ["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:13
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:9
+  Rendered rooms/show.html.erb within layouts/application (15.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 118ms (Views: 111.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/messages" for 113.158.219.117 at 2021-06-05 09:33:35 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4ZGClnyJKH9X0Eyw7d3fi25ez2SI9rPditYV0KroGSYmb6hhrF_I752SF_pXGs5Xbo9mg8CcMkyU63uY73CXMQ", "message"=>{"content"=>"こりゃヤバイ", "room_id"=>"1"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 1], ["room_id", 1]]
+  ↳ app/controllers/messages_controller.rb:5
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[36mMessage Create (1.6ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["content", "こりゃヤバイ"], ["created_at", "2021-06-05 09:33:35.161107"], ["updated_at", "2021-06-05 09:33:35.161107"]]
+  ↳ app/controllers/messages_controller.rb:6
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/messages_controller.rb:6
+Redirected to https://1dcdd93f4a1b4d6f9374de168f423b6b.vfs.cloud9.us-east-1.amazonaws.com/rooms/1
+Completed 302 Found in 18ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/rooms/1" for 113.158.219.117 at 2021-06-05 09:33:35 +0000
+Cannot render console from 113.158.219.117! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:12
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ? AND "entries"."room_id" = ?[0m  [["user_id", 1], ["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:13
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/rooms/show.html.erb:2
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:9
+  Rendered rooms/show.html.erb within layouts/application (10.4ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 137ms (Views: 131.0ms | ActiveRecord: 0.6ms)
+
+
